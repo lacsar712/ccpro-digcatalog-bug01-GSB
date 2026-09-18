@@ -56,7 +56,7 @@ func AuthRequired(secret string) gin.HandlerFunc {
 func AdminOnly() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		role, _ := c.Get("role")
-		if role != "Admin" {
+		if role != "admin" {
 			c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"error": "需要管理员权限"})
 			return
 		}
